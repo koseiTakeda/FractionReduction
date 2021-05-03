@@ -9,7 +9,7 @@ def reducer(numerator, denominator):
 
     :param numerator: int
     :param denominator: int
-    :return: int, int
+    :return: 2 reduced int by a common number
     """
 
     # we want to work on positive int
@@ -17,18 +17,14 @@ def reducer(numerator, denominator):
     denomReduced = abs(denominator)
 
     # which one is the smallest and check if they can divide by themself
-    smallestNum = denomReduced
-    if denomReduced < numerReduced:
-        smallestNum = numerReduced
+    smallestNum = min([numerReduced, denomReduced])
 
     # divide from the smallestNum
     while smallestNum > 1:
         if not numerReduced % smallestNum and not denomReduced % smallestNum:
             numerReduced = int(numerReduced / smallestNum)
             denomReduced = int(denomReduced / smallestNum)
-            smallestNum = denomReduced
-            if numerReduced < denomReduced:
-                smallestNum = numerReduced
+            smallestNum = min([numerReduced, denomReduced])
         smallestNum -= 1
 
     if numerator < 0:
