@@ -17,14 +17,14 @@ def reducer(numerator, denominator):
     denomReduced = abs(denominator)
 
     # which one is the smallest and check if they can divide by themself
-    smallestNum = min([numerReduced, denomReduced])
+    smallestNum = min(numerReduced, denomReduced)
 
     # divide from the smallestNum
     while smallestNum > 1:
         if not numerReduced % smallestNum and not denomReduced % smallestNum:
             numerReduced = int(numerReduced / smallestNum)
             denomReduced = int(denomReduced / smallestNum)
-            smallestNum = min([numerReduced, denomReduced])
+            smallestNum = min(numerReduced, denomReduced)
         smallestNum -= 1
 
     if numerator < 0:
